@@ -14,9 +14,16 @@ Use the provided `requirements.txt` in the root directory of this repo, in order
 The code is developed with Python 3.XX.
 
 ## Running the code
-* `Step 1:` In step 1 you need to do this and that...
-* `Step 2:` In step 2 you have to do the following...
-* `Step 3:` ....
+### ZeroMQ Bridge Demo
+1. Start Unity project `Unity_ZeroMQ` and open the `ZeroMQ_Demo` scene and click the `Play` button
+2. Navigate to `ZeroMQ_Bridge/Python_ZeroMQ`, then bring up the client and server
+```
+python server.py
+python client.py
+```
+3. From the Unity you should see the box is moving in the direction given by the `server.py`, and a lot of images are saving into the `Python_ZeroMQ` folder
+
+### Ros Bridge Demo
 
 
 
