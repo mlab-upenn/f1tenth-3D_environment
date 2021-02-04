@@ -28,6 +28,7 @@ devel_isolated/
 # eclipse stuff
 .project
 .cproject
+.vscode
 
 # qcreator stuff
 CMakeLists.txt.user
@@ -49,3 +50,4 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+.catkin_workspace
