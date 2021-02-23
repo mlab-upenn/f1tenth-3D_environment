@@ -7,21 +7,39 @@ This is the github repository for thedevelopment of the F1TENTH 3D Environment b
 - ....
 
 ## Installation
-Use the provided `requirements.txt` in the root directory of this repo, in order to install all required modules.\
-`pip3 install -r /path/to/requirements.txt`
+1. Download the f1tenth_gym env and follow the intructions on [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) to install the environment
+```bash
+git clone https://github.com/f1tenth/f1tenth_gym.git
+```
+2. Download this repo
+```bash
+git clone https://github.com/mlab-upenn/f1tenth-3D_environment.git
+```
+3. Install Unity Editor through [unity hub](https://docs.unity3d.com/Manual/GettingStartedInstallingHub.html). The project is developed under Unity Version: 2019.3.0f1
+4. Install the dependecies in the `requirements.txt` as `pip install -r requirements.txt`
 
 
-The code is developed with Python 3.XX.
 
 ## Running the code
-### ZeroMQ Bridge Demo
+### ZeroMQ Bridge with f1tenth_gym demo
 1. Start Unity project `Unity_ZeroMQ` and open the `ZeroMQ_Demo` scene and click the `Play` button
-2. Navigate to `ZeroMQ_Bridge/Python_ZeroMQ`, then bring up the client and server
+2. Subsitute the files of in the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) with the files in `ZeroMQ_Bridge/f1tenth_gym_sub/`
+3. In the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) workspace, run the following command to reinstall the updated env
+```bash
+cd gym
+pip install -e .
 ```
-python server.py
+4. In the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) workspace, run the following command to bring up the car in the gym and in the Unity as well
+```bash
+cd examples
+python3 waypoint_follow.py
+```
+5. One can then go back to this repo's workspace, run the following command to get a live stream demo of the images taken in Unity
+```bash
+cd ZeroMQ_Bridge/Python_ZeroMQ
 python client.py
+ 
 ```
-3. From the Unity you should see the box is moving in the direction given by the `server.py`, and a lot of images are saving into the `Python_ZeroMQ` folder
 
 ### Ros Bridge Demo
 1. Under the `ROS_catkin_ws` build the relevant packages
