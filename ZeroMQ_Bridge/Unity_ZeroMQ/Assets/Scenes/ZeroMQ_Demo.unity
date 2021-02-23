@@ -627,12 +627,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d54331352c5abc5869952cee20aad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 2800000, guid: aa406fc54f5772388aa59063564aa8e7, type: 3}
+  map: {fileID: 2800000, guid: a3716b53c5483fb9ba699d644bf613ed, type: 3}
   wallObject: {fileID: 7232680289034751025, guid: c175bd39359e2c57fbea55769a72cb66,
     type: 3}
   groundObject: {fileID: 8450046724941548193, guid: 47799fc8071b32ced9b4f19f14aff4b7,
     type: 3}
   material: {fileID: 2100000, guid: 49184246e17ef4689a13bf0eac4ad281, type: 2}
+  resolution: 0.0625
 --- !u!23 &1938761650
 MeshRenderer:
   m_ObjectHideFlags: 0

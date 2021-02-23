@@ -16,6 +16,10 @@ public class MapReader : MonoBehaviour
     private GameObject groundObject;
     [SerializeField]
     private Material material;
+    [SerializeField]
+    private float resolution;
+
+    int counterr;
 
 
     List<List<(int, int)>> wallCollections = new List<List<(int, int)>>();
@@ -26,9 +30,13 @@ public class MapReader : MonoBehaviour
         {
             return;
         }
+        if (i==map.height/2 || j==map.width/2) 
+        {
+            return;
+        }
         
         Color c = pix[i*map.width + j];
-        if (!c.Equals(Color.black) || isVisited[i,j]) {
+        if (c.Equals(Color.white) || isVisited[i,j]) {
             return;
         }
   
@@ -36,9 +44,14 @@ public class MapReader : MonoBehaviour
         wallCollections[wallCollections.Count-1].Add((i,j));
   
         dfs(i+1, j, ref isVisited, ref pix);
-        dfs(i-1, j, ref isVisited, ref pix);        
         dfs(i, j+1, ref isVisited, ref pix);
-        dfs(i, j-1, ref isVisited, ref pix);     
+        dfs(i, j-1, ref isVisited, ref pix);
+        dfs(i-1, j, ref isVisited, ref pix);        
+        // dfs(i+1, j+1, ref isVisited, ref pix);
+        // dfs(i-1, j-1, ref isVisited, ref pix);
+        // dfs(i+1, j-1, ref isVisited, ref pix);
+        // dfs(i-1, j+1, ref isVisited, ref pix);   
+        counterr++;  
     }
     
     // Start is called before the first frame update
@@ -46,32 +59,41 @@ public class MapReader : MonoBehaviour
     {
         Color[] pix = map.GetPixels();
 
-        float worldX = map.width*0.05f;
-        float worldZ = map.height*0.05f;
+        float worldX = map.width*resolution;
+        float worldZ = map.height*resolution;
 
         Vector3[] spawnPositions = new Vector3[pix.Length];
         Vector3 startingSpawnPosition = new Vector3(Mathf.Round(worldX/2),0f,-Mathf.Round(worldZ/2));
         Vector3 currentSpawnPosition = startingSpawnPosition;
 
         int counter = 0;
+        int bcount=0, wcount=0;
         bool[ , ] isVisited = new bool[map.height, map.width];
         for (int x = 0; x<map.height; x++)
         {
             for (int z = 0; z<map.width; z++)
             {
                 Color c = pix[x*map.width + z]; // get the current color
-                if (c.Equals(Color.black) && !isVisited[x, z]) // is wall
+                if (x==z) {
+                    c = Color.white;
+                }
+                
+                if (!c.Equals(Color.white) && !isVisited[x, z]) // is wall
                 { 
                     wallCollections.Add(new List<(int, int)>());
                     dfs(x, z, ref isVisited, ref pix);
                 }
                 spawnPositions[counter] = currentSpawnPosition;
                 counter++;
-                currentSpawnPosition.z = currentSpawnPosition.z+0.05f;
+                currentSpawnPosition.z = currentSpawnPosition.z+resolution;
             }
             currentSpawnPosition.z = startingSpawnPosition.z;
-            currentSpawnPosition.x = currentSpawnPosition.x-0.05f;
+            currentSpawnPosition.x = currentSpawnPosition.x-resolution;
         }
+        Debug.Log(counterr);
+
+        Debug.Log(wallCollections[0].Count);
+        Debug.Log(wallCollections[1].Count);
 
         // CombineInstance[] combine = new CombineInstance[objectList.Count];
         List<List<GameObject>> objectLists = new List<List<GameObject>>();

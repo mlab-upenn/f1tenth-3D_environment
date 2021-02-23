@@ -3,6 +3,8 @@ import zmq
 import base64
 from PIL import Image
 import io
+import cv2
+import numpy
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
@@ -23,6 +25,8 @@ while True:
 
 
     image = Image.open(io.BytesIO(data))
-    image.save(f"{i}.png")
+    cv2.imshow('image',cv2.cvtColor(numpy.array(image), cv2.COLOR_RGB2BGR))
+    cv2.waitKey(1)
+    # image.save(f"{i}.png")
 
 
