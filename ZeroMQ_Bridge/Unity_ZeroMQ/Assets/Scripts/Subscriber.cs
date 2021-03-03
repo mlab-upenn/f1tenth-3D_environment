@@ -9,6 +9,7 @@ using NetMQ.Sockets;
 
 public class NetMqListener
 {   
+    public string portNum;
     private readonly Thread _listenerWorker;
 
     private bool _listenerCancelled;
@@ -26,7 +27,7 @@ public class NetMqListener
         using (var subSocket = new SubscriberSocket())
         {
             subSocket.Options.ReceiveHighWatermark = 1000;
-            subSocket.Connect("tcp://localhost:12345");
+            subSocket.Connect("tcp://localhost:" + portNum);
             subSocket.Subscribe("");
             while (!_listenerCancelled)
             {
@@ -81,6 +82,8 @@ public class Subscriber : MonoBehaviour
     public const float PI = 3.1415926535897931f;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private string portNum;
     Rigidbody rb;
     private NetMqListener _netMqListener;
     
@@ -101,6 +104,7 @@ public class Subscriber : MonoBehaviour
         rb.useGravity = false;
         rb.detectCollisions = false;
         _netMqListener = new NetMqListener(HandleMessage);
+        _netMqListener.portNum = portNum;
         _netMqListener.Start();
     }
 

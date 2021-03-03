@@ -8,6 +8,7 @@ public class Publisher : MonoBehaviour
 {
     // Start is called before the first frame update
         
+    public string portNum;
     public Camera ImageCamera;
     public string FrameId = "Camera";
     public int resolutionWidth = 640;
@@ -22,14 +23,14 @@ public class Publisher : MonoBehaviour
     void Start()
     {
         InitializeGameObject();
-        server.Bind("tcp://*:12346");
+        server.Bind("tcp://*:" + portNum);
         Camera.onPostRender += UpdateImage;
     }
 
     private void UpdateImage(Camera _camera)
     {
         if (texture2D != null && _camera == this.ImageCamera)
-            Update();
+            onPostRender();
     }
 
     private void InitializeGameObject()
@@ -39,7 +40,7 @@ public class Publisher : MonoBehaviour
         // ImageCamera.targetTexture = new RenderTexture(resolutionWidth, resolutionHeight, 24);
     }
 
-    private void Update()
+    private void onPostRender()
     { 
         texture2D.ReadPixels(rect, 0, 0);
         byte[] data = texture2D.EncodeToJPG(qualityLevel);
