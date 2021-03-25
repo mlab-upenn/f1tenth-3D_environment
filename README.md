@@ -22,7 +22,8 @@ git clone https://github.com/mlab-upenn/f1tenth-3D_environment.git
 
 ## Running the code
 ### ZeroMQ Bridge with f1tenth_gym demo
-1. Start Unity project `Unity_ZeroMQ` and open the `ZeroMQ_Demo` scene and click the `Play` button
+0. The first car's ports in Unity are hardcoded as 12345(pose), 12346(img); The second's are 12347(pose), 12348(img)
+1. Start Unity project `Unity_ZeroMQ` and open the `ZeroMQ_Demo` scene and click the `Play` button, one can click the button `Switch Method` for one car or two cars racing
 2. Subsitute the files of in the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) with the files in `ZeroMQ_Bridge/f1tenth_gym_sub/`
 3. In the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) workspace, run the following command to reinstall the updated env
 ```bash
