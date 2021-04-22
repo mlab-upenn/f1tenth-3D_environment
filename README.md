@@ -24,22 +24,10 @@ git clone https://github.com/mlab-upenn/f1tenth-3D_environment.git
 ### ZeroMQ Bridge with f1tenth_gym demo
 0. The first car's ports in Unity are hardcoded as 12345(pose), 12346(img); The second's are 12347(pose), 12348(img)
 1. Start Unity project `Unity_ZeroMQ` and open the `ZeroMQ_Demo` scene and click the `Play` button, one can click the button `Switch Method` for one car or two cars racing
-2. Subsitute the files of in the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) with the files in `ZeroMQ_Bridge/f1tenth_gym_sub/`
-3. In the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) workspace, run the following command to reinstall the updated env
+2. In the root folder, type the following command which would start two car racing.
 ```bash
-cd gym
-pip install -e .
-```
-4. In the [f1tenth_gym](https://github.com/f1tenth/f1tenth_gym) workspace, run the following command to bring up the car in the gym and in the Unity as well
-```bash
-cd examples
+cd f1tenth_gym-camera_dev_billy/examples
 python3 waypoint_follow.py
-```
-5. One can then go back to this repo's workspace, run the following command to get a live stream demo of the images taken in Unity
-```bash
-cd ZeroMQ_Bridge/Python_ZeroMQ
-python client.py
- 
 ```
 
 ### Ros Bridge Demo

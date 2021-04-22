@@ -94,7 +94,7 @@ public class Subscriber : MonoBehaviour
         var z = float.Parse(splittedStrings[0]);
         var x = float.Parse(splittedStrings[1]);
         var theta = float.Parse(splittedStrings[2]);
-        rb.transform.position = new Vector3(x, 0.5f, z);
+        rb.transform.position = new Vector3(x, 0f, z);
         rb.transform.rotation = Quaternion.Euler(0f, (theta)/PI*180f, 0f);
 
     }
