@@ -13,8 +13,6 @@ public class MapReader : MonoBehaviour
     [SerializeField]
     private GameObject wallObject;
     [SerializeField]
-    private GameObject groundObject;
-    [SerializeField]
     private Material material;
     [SerializeField]
     private float resolution;

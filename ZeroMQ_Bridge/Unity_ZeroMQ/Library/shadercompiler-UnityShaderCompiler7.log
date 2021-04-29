@@ -1,20 +1,6 @@
 Base path: '/home/xiaozhou/Unity/Hub/Editor/2019.4.14f1/Editor/2019.3.0f1/Editor/Data', plugins path '/home/xiaozhou/Unity/Hub/Editor/2019.4.14f1/Editor/2019.3.0f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=15 insize=18299 outsize=24890 ok=1
-Cmd: compileComputeKernel
-  api=18 insize=18299 outsize=57250 ok=1
-Cmd: compileComputeKernel
-  api=15 insize=1454 outsize=3972 ok=1
-Cmd: compileComputeKernel
-  api=15 insize=4855 outsize=8633 ok=1
-Cmd: compileComputeKernel
-  api=18 insize=1806 outsize=6517 ok=1
-Cmd: compileComputeKernel
-  api=18 insize=10881 outsize=48013 ok=1
-Cmd: compileComputeKernel
-  api=18 insize=2059 outsize=7107 ok=1
-Cmd: compileComputeKernel
-  api=18 insize=3072 outsize=1259 ok=1
-
-Quitting shader compiler process
+Cmd: compileSnippet
+  api=15 type=0 insize=1602 outsize=18876 kw=UNITY_PASS_FORWARDBASE DIRECTIONAL LIGHTPROBE_SH INSTANCING_ON _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
+Cmd: compileSnippet
+  api=15 type=1 insize=944 outsize=0 kw=UNITY_PASS_SHADOWCASTER SHADOWS_DEPTH pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
