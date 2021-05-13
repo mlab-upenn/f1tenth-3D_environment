@@ -109,7 +109,7 @@ Wall Object // object for generating the wall
 Material // wall material
 Resolution // the same map resolution of the gym side
 ```
-![](../f1tenth-3D_environment/document/map_config.png)
+![](./document/map_config.png)
 
 2. CameraC.cs
 ```C
