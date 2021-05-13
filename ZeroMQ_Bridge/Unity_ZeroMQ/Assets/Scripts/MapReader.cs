@@ -24,10 +24,13 @@ public class MapReader : MonoBehaviour
 
     void dfs(int i, int j, ref bool[,] isVisited, ref Color[] pix) 
     {
+        // avoid overflow
         if (i<0 || j<0 || i>= map.height || j>= map.width) 
         {
             return;
         }
+
+        // cut the map in 4 for better mesh combine
         if (i==map.height/2 || j==map.width/2) 
         {
             return;
@@ -45,10 +48,6 @@ public class MapReader : MonoBehaviour
         dfs(i, j+1, ref isVisited, ref pix);
         dfs(i, j-1, ref isVisited, ref pix);
         dfs(i-1, j, ref isVisited, ref pix);        
-        // dfs(i+1, j+1, ref isVisited, ref pix);
-        // dfs(i-1, j-1, ref isVisited, ref pix);
-        // dfs(i+1, j-1, ref isVisited, ref pix);
-        // dfs(i-1, j+1, ref isVisited, ref pix);   
         counterr++;  
     }
     
@@ -88,12 +87,7 @@ public class MapReader : MonoBehaviour
             currentSpawnPosition.z = startingSpawnPosition.z;
             currentSpawnPosition.x = currentSpawnPosition.x-resolution;
         }
-        Debug.Log(counterr);
 
-        Debug.Log(wallCollections[0].Count);
-        Debug.Log(wallCollections[1].Count);
-
-        // CombineInstance[] combine = new CombineInstance[objectList.Count];
         List<List<GameObject>> objectLists = new List<List<GameObject>>();
         
         // from wallCollections to objectCollections
@@ -126,63 +120,6 @@ public class MapReader : MonoBehaviour
             objToSpawn.transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
             objToSpawn.transform.gameObject.SetActive(true);
         }
-                 
-         
-        // for (int i=0; i<spawnPositions.Length; i=i+1)
-        // {
-        //     Color c = pix[i];
-        //     if (c.Equals(Color.black))
-        //     {
-        //         objectList.Add(Instantiate(wallObject, spawnPositions[i], Quaternion.identity));
-        //         // objectList.Add(Instantiate(groundObject, spawnPositions[i], Quaternion.identity));
-        //     }
-        //     // if (c.Equals(Color.white))
-        //     // {
-        //     //     objectList.Add(Instantiate(groundObject, spawnPositions[i], Quaternion.identity));
-        //     // }
-        //     // objectList.Add(Instantiate(groundObject, spawnPositions[i], Quaternion.identity));
-
-        // }
-       
-        // CombineInstance[] combine = new CombineInstance[objectList.Count];
-        // MeshFilter meshFilters;
-        // Debug.Log(wallCollections.Count);
-        // // Debug.Log(objectList.Count);
-        // // Debug.Log(counter);
-        // for (int i=0; i< objectList.Count; i++) {
-        //     meshFilters =  (MeshFilter)objectList[i].GetComponent("MeshFilter");
-        //     combine[i].mesh = meshFilters.sharedMesh;
-        //     combine[i].transform =  meshFilters.transform.localToWorldMatrix;
-        //     meshFilters.gameObject.SetActive(false);
-        // }
-        
-        // transform.GetComponent<MeshFilter>().mesh = new Mesh();
-        // transform.GetComponent<MeshFilter>().mesh.CombineMeshes(combine);
-        // transform.gameObject.SetActive(true);
-
-        // foreach (Vector3 pos in spawnPositions)
-        // {
-        //     Color c = pix[counter];
-
-        //     // if (c.Equals(Color.white))
-        //     // {
-        //     //     Instantiate(groundObject, pos, Quaternion.identity);
-        //     // }
-        //     if (c.Equals(Color.black))
-        //     {
-        //         Instantiate(wallObject, pos, Quaternion.identity);
-        //     }
-
-        //     counter++;
-        // }
-
-        // for(int i = 0; i< objectList.Count; i++){
-        //     PrefabUtility.SaveAsPrefabAsset(objectList[i], "Assets/Prefabs/levine.prefab");
-        // }
-
-
-    
-
     }
 
     // Update is called once per frame

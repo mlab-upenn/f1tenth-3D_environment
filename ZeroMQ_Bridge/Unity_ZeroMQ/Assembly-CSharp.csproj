@@ -37,7 +37,6 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraC.cs" />
-     <Compile Include="Assets\Scripts\LoadBundle.cs" />
      <Compile Include="Assets\Scripts\MapReader.cs" />
      <Compile Include="Assets\Scripts\Publisher.cs" />
      <Compile Include="Assets\Scripts\Subscriber.cs" />
