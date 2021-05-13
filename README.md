@@ -141,3 +141,18 @@ Second Car // the car#2 object
 
 ## Video Demo link
 [Demo](https://drive.google.com/file/d/17mPikjnLHj_oWPZpzE_cKq1EdGVkt0eA/view?usp=sharing)
+
+## How to change car model and material
+### Find model/material
+The car model and floor/wall materials I used in downloaded from the Unity Asset Store. One can access to the Unity Asset Store in the Unity Editor. In the navigation bar, click `Window` -> `Asset Store`.
+
+Once you visit the Asset Store, you can search for the assests you need. For example you can type `car` in the search bar and download the asset you want.
+
+When you done so, go to My Assets by clicking the avatar on the up right corner, and import the asset you download to your project.
+
+### Change model/material in the scence
+Car model: In the scene hierarchy, you need to switch the `Free_Racing_Car` car object to your assets in `Player1`/`Player2`. And in the `ZmqConnector` object, add the car object to the params of  `Subscriber.cs`. In the `Main Camera` object, add the car's transform to the params of `CameraC.cs`.
+
+Material: To change the material of the floor, you can go to the `Plane` object. Under the `Mesh Renderer` property on the right `Inspector` window, switch the `Materials`' `Element 0` to your material.
+
+TO change the material of the wall, you can go to the `MapReader` object. Under the `Mesh Renderer` property on the right `Inspector` window, switch the `Materials`' `Element 0` to your material. Add also change the `Material` in the `MapReader.cs` params.
