@@ -15,6 +15,19 @@ $ pip3 install --user -e gym/
 ```
 
 ## Running the code
+### ZeroMQ Bridge Unity Build
+1. Start the Unity Build at `ZeroMQ_Bridge/Build/v0.x86_64`
+2. In the root folder, type the following command which would start two cars racing.
+```bash
+cd f1tenth_gym-camera_dev_billy/examples
+python3 waypoint_follow_multi.py
+```
+3. Click the button `Switch Method` for one car racing
+4. In the root folder, type the following command which would start one car racing.
+```bash
+cd f1tenth_gym-camera_dev_billy/examples
+python3 waypoint_follow_single.py
+```
 ### ZeroMQ Bridge with f1tenth_gym demo
 1. Start Unity project `Unity_ZeroMQ` and open the `ZeroMQ_Demo` scene through unity hub which you installed before, and click the `Play` button.
 2. In the root folder, type the following command which would start two cars racing.
@@ -156,3 +169,6 @@ Car model: In the scene hierarchy, you need to switch the `Free_Racing_Car` car 
 Material: To change the material of the floor, you can go to the `Plane` object. Under the `Mesh Renderer` property on the right `Inspector` window, switch the `Materials`' `Element 0` to your material.
 
 TO change the material of the wall, you can go to the `MapReader` object. Under the `Mesh Renderer` property on the right `Inspector` window, switch the `Materials`' `Element 0` to your material. Add also change the `Material` in the `MapReader.cs` params.
+
+## Release a build
+In the Unity Editor, one can release a build by clicking `File` -> `Build Setting`. In the open window, click `Add Open Scences` and select the platform you want. Then Click `Build` and save it to a seperate location outside of the Unity project.

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ZeroMQ_Demo.unity
+    guid: 917e56ae2150478b5891d31f29180b42
   m_configObjects: {}
